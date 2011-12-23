@@ -1,0 +1,5 @@
+js:
+  dmJCarouselLightBehaviorPlugin:
+    jcarousellight:  jquery.jcarousel-light.modified
+    mousewheel:      jquery.mousewheel.min
+    launch: dmJCarouselLightBehavior

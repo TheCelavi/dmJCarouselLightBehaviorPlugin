@@ -1,0 +1,6 @@
+dmBehaviors:
+  dmJCarouselLightBehavior:
+    section: Media Gallery
+    name: JCarousel Light
+    form: dmJCarouselLightBehaviorForm
+    view: dmJCarouselLightBehaviorView
