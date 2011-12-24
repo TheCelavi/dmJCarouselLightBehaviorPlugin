@@ -13,21 +13,19 @@
             var $this = $(this);
             // Cycle does not have a good destroy method :(            
             // This is memory mess, so it would be convinient to have view behavior and admin behavior
-            var $copy = $this.clone(true, true);
-            var $parent = $this.parent();
-            $copy.data('dmJCarouselLightBehaviorPreviousDOM', $this.detach());            
-            $parent.append($copy);
-            $copy.children().wrapAll('<div class="jCarouselLightWrapper"></div>');
-            $copy.addClass('jCarouselContainer');
+            var $copy = $this.children().clone(true, true);
+            $this.data('dmJCarouselLightBehaviorPreviousDOM', $this.children().detach());                    
+            $this.empty();
+            $this.append($('<div class="jCarouselContainer"></div>').append($('<div class="jCarouselLightWrapper"></div>').append($copy)));
             if (behavior.showNavigation) {
                 behavior.btnPrev = $('<div class="jCarouselNavigation previous">prev</div>');                
                 behavior.btnNext = $('<div class="jCarouselNavigation next">next</div>');
-                $copy.before(behavior.btnPrev);
-                $copy.after(behavior.btnNext);
+                $this.prepend(behavior.btnPrev);
+                $this.append(behavior.btnNext);
                 if (behavior.vertical) $('div.jCarouselNavigation', $copy).addClass('vertical');
                 else $('div.jCarouselNavigation', $copy).addClass('horizontal');
             }
-            $copy.jCarouselLite(behavior);
+            $this.find('div.jCarouselContainer').jCarouselLite(behavior);
         },
         stop: function(behavior) {
             var $this = $(this);
@@ -35,7 +33,9 @@
                 behavior.btnPrev.remove();                
                 behavior.btnNext.remove();
             }
-            $this.replaceWith($this.data('dmJCarouselLightBehaviorPreviousDOM'));            
+            $this.empty();
+            $this.append($this.data('dmJCarouselLightBehaviorPreviousDOM'));
+            
         },
         destroy: function(behavior) {            
             var $this = $(this);
