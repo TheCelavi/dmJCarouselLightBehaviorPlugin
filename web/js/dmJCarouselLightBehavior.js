@@ -32,7 +32,7 @@
             if (behavior.showNavigation) {
                 behavior.btnPrev.remove();                
                 behavior.btnNext.remove();
-            }
+            };
             $this.empty();
             $this.append($this.data('dmJCarouselLightBehaviorPreviousDOM'));
             
@@ -42,7 +42,7 @@
             $this.data('dmJCarouselLightBehavior', null);
             $this.data('dmJCarouselLightBehaviorPreviousDOM', null)
         }
-    }
+    };
     
     $.fn.dmJCarouselLightBehavior = function(method, behavior){
         
@@ -53,7 +53,7 @@
                 return methods.init.apply( this, [method] );
             } else {
                 $.error( 'Method ' +  method + ' does not exist on jQuery.dmJCarouselLightBehavior' );
-            }  
+            };  
         });
     };
 

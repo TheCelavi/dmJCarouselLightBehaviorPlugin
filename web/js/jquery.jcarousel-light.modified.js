@@ -46,7 +46,7 @@ $.fn.jCarouselLite = function(o) {
             ul.prepend(tLi.slice(tl-v+1).clone())
               .append(tLi.slice(0,o.scroll).clone());
             o.start += v-1;
-        }
+        };
 
         var li = ul.children();
         li.css('width', o.itemWidth).css('height', o.itemHeight).css('overflow', 'hidden');
@@ -72,8 +72,8 @@ $.fn.jCarouselLite = function(o) {
             });
             if(o.hoverPause) {
                 $(o.btnPrev).hover(function(){stopAuto();}, function(){startAuto();});
-            }
-        }
+            };
+        };
 
 
         if(o.btnNext) {
@@ -82,8 +82,8 @@ $.fn.jCarouselLite = function(o) {
             });
             if(o.hoverPause) {
                 $(o.btnNext).hover(function(){stopAuto();}, function(){startAuto();});
-            }
-        }
+            };
+        };
 
         if(o.btnGo)
             $.each(o.btnGo, function(i, val) {
@@ -113,7 +113,7 @@ $.fn.jCarouselLite = function(o) {
         if(o.auto) {
             if(o.hoverPause) {
                 div.hover(function(){stopAuto();}, function(){startAuto();});
-            }
+            };
             startAuto();
         };
 
@@ -138,7 +138,7 @@ $.fn.jCarouselLite = function(o) {
                 } else {                    // If non-circular and to points to first or last, we just return.
                     if(to<0 || to>itemLength-v) return;
                     else curr = to;
-                }                           // If neither overrides it, the curr will still be "to" and we can proceed.
+                };                          // If neither overrides it, the curr will still be "to" and we can proceed.
 
                 running = true;
 
@@ -159,9 +159,9 @@ $.fn.jCarouselLite = function(o) {
                         ||
                        []
                      ).addClass("disabled");
-                }
+                };
 
-            }
+            };
             return false;
         };
     });
